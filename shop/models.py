@@ -4,19 +4,15 @@ from django.db import models
 class Product(models.Model):
     productCode = models.CharField(max_length=15, primary_key=True)
     productName = models.CharField(max_length=70)
-    productScale = models.CharField(max_length=10)
-    productVendor = models.CharField(max_length=50)
     productDescription = models.TextField()
     quantityInStock = models.SmallIntegerField()
     buyPrice = models.DecimalField(max_digits=10, decimal_places=2)
-    MSRP = models.DecimalField(max_digits=10, decimal_places=2)
 
 
 class Employee(models.Model):
     employeeNumber = models.IntegerField(primary_key=True)
     lastName = models.CharField(max_length=50)
     firstName = models.CharField(max_length=50)
-    extension = models.CharField(max_length=10)
     email = models.EmailField()
     reportsTo = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     jobTitle = models.CharField(max_length=50)
